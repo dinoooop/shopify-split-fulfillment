@@ -1,3 +1,5 @@
-/node_modules
-/notes
+node_modules
+notes
 .env
+log/*
+!log/.gitignore
