@@ -24,4 +24,4 @@ npm run move
 ```
 
 ## Note
-Currently the code is suitable for orders that contains only one line item
+This is a test code run only for the first line item in the order

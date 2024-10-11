@@ -4,11 +4,11 @@ import { getOrder, moveToNewLocation } from "./utilities/service.js";
 (async function () {
   {
     try {
-      // set your Shopify order id here
+      // Set your Shopify order id here
       const orderId = "gid://shopify/Order/5786576388170";
       const data = await getOrder(orderId);
 
-      // This code is for orders that contains only one line item
+      // This is a test code run only for the first line item in the order
       // Set the required variables from order details
       const lineItem = data.order.lineItems.nodes[0];
       const fulfillmentOrder = data.order.fulfillmentOrders.nodes[0];
