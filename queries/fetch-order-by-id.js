@@ -28,17 +28,17 @@ export const FETCH_ORDER_BY_ID = `
             fulfillmentOrders(first:1) {
                 nodes {
                     id
+                    assignedLocation {
+                        location{
+                            id
+                        }
+                    }
                     lineItems(first:1) {
                         nodes 
                         {
                             id
                         }
                     }
-                }
-            }
-            fulfillments {
-                location {
-                    id
                 }
             }
         }
