@@ -2,50 +2,48 @@ import { getMoveInfo } from "./utilities/helper.js";
 import { getOrder, moveToNewLocation } from "./utilities/service.js";
 
 (async function () {
-  {
-    try {
-      // Set your Shopify order id here
-      const orderId = "gid://shopify/Order/5786576388170";
-      const data = await getOrder(orderId);
+  try {
+    // Set your Shopify order id here
+    const orderId = "gid://shopify/Order/5786591592522";
+    const data = await getOrder(orderId);
 
-      // This is a test code run only for the first line item in the order
-      // Set the required variables from order details
-      const lineItem = data.order.lineItems.nodes[0];
-      const fulfillmentOrder = data.order.fulfillmentOrders.nodes[0];
-      const assignedLocation = fulfillmentOrder.assignedLocation.location.id;
-      const fulfillmentOrderIdToBeMoved = fulfillmentOrder.id;
-      const fulfillmentOrderLineItemId = fulfillmentOrder.lineItems.nodes[0].id;
+    // This is a test code run only for the first line item in the order
+    // Set the required variables from order details
+    const lineItem = data.order.lineItems.nodes[0];
+    const fulfillmentOrder = data.order.fulfillmentOrders.nodes[0];
+    const assignedLocation = fulfillmentOrder.assignedLocation.location.id;
+    const fulfillmentOrderIdToBeMoved = fulfillmentOrder.id;
+    const fulfillmentOrderLineItemId = fulfillmentOrder.lineItems.nodes[0].id;
 
-      // Get the location and quantity to move
-      const moveInfo = getMoveInfo(lineItem, assignedLocation);
+    // Get the location and quantity to move
+    const moveInfo = getMoveInfo(lineItem, assignedLocation);
 
-      if (moveInfo.isRequireToMove) {
-        console.log("Need fulfillment order move");
-        console.log("assignedLocation", assignedLocation);
-        console.log("fulfillmentOrderIdToBeMoved", fulfillmentOrderIdToBeMoved);
-        console.log("fulfillmentOrderLineItemId", fulfillmentOrderLineItemId);
+    if (moveInfo.isRequireToMove) {
+      console.log("Need fulfillment order move");
+      console.log("assignedLocation", assignedLocation);
+      console.log("fulfillmentOrderIdToBeMoved", fulfillmentOrderIdToBeMoved);
+      console.log("fulfillmentOrderLineItemId", fulfillmentOrderLineItemId);
 
-        const fulfillmentOrderLineItemQty = moveInfo.qtyToMove;
-        console.log("fulfillmentOrderLineItemQty", fulfillmentOrderLineItemQty);
+      const fulfillmentOrderLineItemQty = moveInfo.qtyToMove;
+      console.log("fulfillmentOrderLineItemQty", fulfillmentOrderLineItemQty);
 
-        if (moveInfo.hasLocationToMove) {
-          // Execute graphql mutation to move fulfillment order
-          moveToNewLocation({
-            id: fulfillmentOrderIdToBeMoved,
-            newLocationId: moveInfo.newLocationId,
-            fulfillmentOrderLineItems: {
-              id: fulfillmentOrderLineItemId,
-              quantity: fulfillmentOrderLineItemQty,
-            },
-          });
-        } else {
-          console.log("No location to move");
-        }
+      if (moveInfo.hasLocationToMove) {
+        // Execute graphql mutation to move fulfillment order
+        moveToNewLocation({
+          id: fulfillmentOrderIdToBeMoved,
+          newLocationId: moveInfo.newLocationId,
+          fulfillmentOrderLineItems: {
+            id: fulfillmentOrderLineItemId,
+            quantity: fulfillmentOrderLineItemQty,
+          },
+        });
       } else {
-        console.log("Not need a fulfillment order move");
+        console.log("No location to move");
       }
-    } catch (error) {
-      console.error(error);
+    } else {
+      console.log("Not need a fulfillment order move");
     }
+  } catch (error) {
+    console.error(error);
   }
 })();
