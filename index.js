@@ -26,6 +26,8 @@ async function run() {
             quantity: fulfillmentOrderLineItemQty,
           },
         });
+      } else {
+        console.log("No location to move");
       }
     } else {
       console.log("Not need fulfillment order move");

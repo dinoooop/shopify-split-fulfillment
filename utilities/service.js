@@ -17,7 +17,7 @@ export async function getOrders() {
       orderId: process.env.ORDER_ID,
     });
     const jsonData = JSON.stringify(data, null, 2);
-    fs.writeFileSync("order.json", jsonData, "utf-8");
+    fs.writeFileSync("./log/order.json", jsonData, "utf-8");
     return data;
   } catch (error) {
     console.error(error);
@@ -28,7 +28,7 @@ export async function moveOrder(param) {
   try {
     const data = await client.request(MOVE_ORDER, param);
     const jsonData = JSON.stringify(data, null, 2);
-    fs.writeFileSync("move.json", jsonData, "utf-8");
+    fs.writeFileSync("./log/move.json", jsonData, "utf-8");
     return data;
   } catch (error) {
     console.error(error);

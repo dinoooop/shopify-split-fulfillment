@@ -5,11 +5,11 @@ export const getMoveInfo = (lineItem) => {
   for (const inventoryLevel of inventoryLevels) {
     if (inventoryLevel.quantities[0].quantity < 0) {
       data.isRequireToMove = true;
-      data.qtyToMove = data.quantity + inventoryLevel.quantities[0].quantity;
+      data.qtyToMove = Math.abs(inventoryLevel.quantities[0].quantity);
     }
   }
 
-  if(data.isRequireToMove){
+  if (data.isRequireToMove) {
     for (const inventoryLevel of inventoryLevels) {
       if (inventoryLevel.quantities[0].quantity >= data.qtyToMove) {
         data.hasLocationToMove = true;
