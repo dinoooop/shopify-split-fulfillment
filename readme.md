@@ -5,23 +5,23 @@ You are executing this code when an order placed with n quantity and that can't 
 ## Installation
 You need node version at least 18
 
-First of all, copy the configurations from example env file
+First of all, copy the configurations from example env file.
 ```sh
 cp .env.example .env
 ```
 
-Modify your new .env with your configuration values 
+Modify your new .env with your configuration values.
 
-To install all dependencies, run the following command
+To install all dependencies, run the following command.
 ```sh
 npm install
 ```
 
 ## Test the code
-Create your test order and run the following command to execute the code
+Create your test order and run the following command to execute the code.
 ```sh
 npm run move
 ```
 
 ## Note
-This is a test code run only for the first line item in the order
+This is a test code run only for the first line item in the order.
