@@ -1,0 +1,17 @@
+{
+  "fulfillmentOrderMove": {
+    "movedFulfillmentOrder": {
+      "id": "gid://shopify/FulfillmentOrder/6889714810954",
+      "status": "OPEN"
+    },
+    "originalFulfillmentOrder": {
+      "id": "gid://shopify/FulfillmentOrder/6889712746570",
+      "status": "OPEN"
+    },
+    "remainingFulfillmentOrder": {
+      "id": "gid://shopify/FulfillmentOrder/6889712746570",
+      "status": "OPEN"
+    },
+    "userErrors": []
+  }
+}
