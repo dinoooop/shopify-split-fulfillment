@@ -1,10 +1,10 @@
 {
   "order": {
-    "name": "#1093",
+    "name": "#1094",
     "lineItems": {
       "nodes": [
         {
-          "id": "gid://shopify/LineItem/14375943077962",
+          "id": "gid://shopify/LineItem/14375962935370",
           "quantity": 3,
           "variant": {
             "id": "gid://shopify/ProductVariant/41611966578762",
@@ -30,7 +30,7 @@
                     },
                     "quantities": [
                       {
-                        "quantity": 2
+                        "quantity": 1
                       }
                     ]
                   }
@@ -44,7 +44,7 @@
     "fulfillmentOrders": {
       "nodes": [
         {
-          "id": "gid://shopify/FulfillmentOrder/6891218305098",
+          "id": "gid://shopify/FulfillmentOrder/6891231281226",
           "assignedLocation": {
             "location": {
               "id": "gid://shopify/Location/63264030794"
@@ -53,7 +53,7 @@
           "lineItems": {
             "nodes": [
               {
-                "id": "gid://shopify/FulfillmentOrderLineItem/14563520741450"
+                "id": "gid://shopify/FulfillmentOrderLineItem/14563540697162"
               }
             ]
           }

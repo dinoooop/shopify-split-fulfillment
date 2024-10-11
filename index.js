@@ -5,28 +5,27 @@ import { getOrder, moveToNewLocation } from "./utilities/service.js";
   {
     try {
       // set your Shopify order id here
-      const orderId = "gid://shopify/Order/5786564001866";
+      const orderId = "gid://shopify/Order/5786576388170";
       const data = await getOrder(orderId);
 
       // This code is for orders that contains only one line item
-      // Set the required variables from orders
+      // Set the required variables from order details
       const lineItem = data.order.lineItems.nodes[0];
       const fulfillmentOrder = data.order.fulfillmentOrders.nodes[0];
       const assignedLocation = fulfillmentOrder.assignedLocation.location.id;
+      const fulfillmentOrderIdToBeMoved = fulfillmentOrder.id;
+      const fulfillmentOrderLineItemId = fulfillmentOrder.lineItems.nodes[0].id;
 
       // Get the location and quantity to move
       const moveInfo = getMoveInfo(lineItem, assignedLocation);
 
       if (moveInfo.isRequireToMove) {
         console.log("Need fulfillment order move");
-        const fulfillmentOrderIdToBeMoved = fulfillmentOrder.id;
-        const fulfillmentOrderLineItemId =
-          fulfillmentOrder.lineItems.nodes[0].id;
-        const fulfillmentOrderLineItemQty = moveInfo.qtyToMove;
-
         console.log("assignedLocation", assignedLocation);
         console.log("fulfillmentOrderIdToBeMoved", fulfillmentOrderIdToBeMoved);
         console.log("fulfillmentOrderLineItemId", fulfillmentOrderLineItemId);
+
+        const fulfillmentOrderLineItemQty = moveInfo.qtyToMove;
         console.log("fulfillmentOrderLineItemQty", fulfillmentOrderLineItemQty);
 
         if (moveInfo.hasLocationToMove) {

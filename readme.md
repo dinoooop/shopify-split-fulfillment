@@ -22,3 +22,6 @@ Create your test order and run the following command to execute the code
 ```sh
 npm run move
 ```
+
+## Note
+Currently the code is suitable for orders that contains only one line item
