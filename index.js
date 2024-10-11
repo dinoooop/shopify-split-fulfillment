@@ -5,7 +5,7 @@ import { getOrder, moveToNewLocation } from "./utilities/service.js";
   {
     try {
       // set your Shopify order id here
-      const orderId = "gid://shopify/Order/5786454687818";
+      const orderId = "gid://shopify/Order/5786564001866";
       const data = await getOrder(orderId);
 
       // This code is for orders that contains only one line item

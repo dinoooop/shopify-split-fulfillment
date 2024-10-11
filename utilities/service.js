@@ -26,7 +26,7 @@ export async function getOrder(id) {
  * Execute fulfillment order move mutation 
  *
  * @param {object} id - param parameters required to execute fulfillment order move mutation 
- * @returns {Promise<Object>} - Order details
+ * @returns {Promise<Object>} - Fulfillment order move details
  */
 export async function moveToNewLocation(param) {
   try {
