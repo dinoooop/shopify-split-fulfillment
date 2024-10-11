@@ -17,6 +17,7 @@ export const getMoveInfo = (lineItem, assignedLocation) => {
       if (inventoryLevel.quantities[0].quantity >= data.qtyToMove) {
         data.hasLocationToMove = true;
         data.newLocationId = inventoryLevel.location.id;
+        break;
       }
     }
   }
